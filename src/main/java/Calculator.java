@@ -19,11 +19,28 @@ public class Calculator {
     }
 
     public static void main(String[] args) {
+        try {
+            Scanner sc = new Scanner(System.in);
+            int size, val;
 
-        System.out.println("======== Multiply ==========");
-        System.out.println(Calculator.multiply(1,2,3,4,5));
-        System.out.println();
-        System.out.println("======== Addition ==========");
-        System.out.println(Calculator.add(5,4,3,2,1));
+            System.out.println("How many numbers are you working with");
+            size = sc.nextInt();
+            int[] numArray = new int[size];
+
+            System.out.println("Enter " + size + " numbers to add and multiply");
+            for (int i = 0; i < numArray.length;i++){
+                numArray[i] = sc.nextInt();
+            }
+
+            System.out.println("======== Multiply ==========");
+            System.out.print("Product : " + Calculator.multiply(numArray));
+            System.out.println();
+            System.out.println("======== Addition ==========");
+            System.out.print("Sum : " + Calculator.add(numArray));
+        }
+        catch (NumberFormatException e){
+            System.out.println(e.getMessage());
+        }
     }
 }
+
